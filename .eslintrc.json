@@ -4,6 +4,9 @@
     "es2021": true
   },
   "extends": [
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "airbnb"
   ],
@@ -20,5 +23,31 @@
   "@typescript-eslint"
   ],
   "rules": {
+    "@typescript-eslint/no-use-before-define": ["error", "nofunc"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+    "no-use-before-define": "off", // disable this coming from airbnb
+    "react/jsx-filename-extension": [1,
+      {
+        "extensions": [
+          ".tsx"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }
